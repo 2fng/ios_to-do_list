@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E983EB26AE1A55894A5107C /* Pods_ios_to_do_list.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061E37B8700F2756A3351020 /* Pods_ios_to_do_list.framework */; };
 		DF81DC462A5AA6AD00010CDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81DC452A5AA6AD00010CDC /* AppDelegate.swift */; };
 		DF81DC482A5AA6AD00010CDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81DC472A5AA6AD00010CDC /* SceneDelegate.swift */; };
 		DF81DC4A2A5AA6AD00010CDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF81DC492A5AA6AD00010CDC /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		061E37B8700F2756A3351020 /* Pods_ios_to_do_list.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_to_do_list.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AA0704E1332782340FCB2B2 /* Pods-ios_to-do_list.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_to-do_list.release.xcconfig"; path = "Target Support Files/Pods-ios_to-do_list/Pods-ios_to-do_list.release.xcconfig"; sourceTree = "<group>"; };
+		995262B9F66763F61BC5FECB /* Pods-ios_to-do_list.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_to-do_list.debug.xcconfig"; path = "Target Support Files/Pods-ios_to-do_list/Pods-ios_to-do_list.debug.xcconfig"; sourceTree = "<group>"; };
 		DF81DC422A5AA6AD00010CDC /* ios_to-do_list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios_to-do_list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF81DC452A5AA6AD00010CDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF81DC472A5AA6AD00010CDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E983EB26AE1A55894A5107C /* Pods_ios_to_do_list.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		205BF5401F2206E8F4DC0C40 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				061E37B8700F2756A3351020 /* Pods_ios_to_do_list.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7B9B43B5CC0B2C1DD06F2E22 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				995262B9F66763F61BC5FECB /* Pods-ios_to-do_list.debug.xcconfig */,
+				0AA0704E1332782340FCB2B2 /* Pods-ios_to-do_list.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DF81DC392A5AA6AD00010CDC = {
 			isa = PBXGroup;
 			children = (
 				DF81DC442A5AA6AD00010CDC /* ios_to-do_list */,
 				DF81DC432A5AA6AD00010CDC /* Products */,
+				7B9B43B5CC0B2C1DD06F2E22 /* Pods */,
+				205BF5401F2206E8F4DC0C40 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF81DC562A5AA6AF00010CDC /* Build configuration list for PBXNativeTarget "ios_to-do_list" */;
 			buildPhases = (
+				C78966B21BDCF4E9AD0CCA47 /* [CP] Check Pods Manifest.lock */,
 				DF81DC3E2A5AA6AD00010CDC /* Sources */,
 				DF81DC3F2A5AA6AD00010CDC /* Frameworks */,
 				DF81DC402A5AA6AD00010CDC /* Resources */,
+				DF81DC592A5AA85500010CDC /* Install SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -132,6 +158,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C78966B21BDCF4E9AD0CCA47 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ios_to-do_list-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF81DC592A5AA85500010CDC /* Install SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Install SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DF81DC3E2A5AA6AD00010CDC /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		DF81DC572A5AA6AF00010CDC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 995262B9F66763F61BC5FECB /* Pods-ios_to-do_list.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -295,6 +365,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,6 +381,7 @@
 		};
 		DF81DC582A5AA6AF00010CDC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AA0704E1332782340FCB2B2 /* Pods-ios_to-do_list.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -323,6 +395,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
