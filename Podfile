@@ -7,5 +7,8 @@ target 'ios_to-do_list' do
 
   # Pods for ios_to-do_list
   pod 'SwiftLint'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'CHGlassmorphismView'
 
 end
