@@ -7,12 +7,14 @@ PODS:
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
   - SwiftLint (0.50.3)
+  - Then (3.0.0)
 
 DEPENDENCIES:
   - CHGlassmorphismView
   - RxCocoa
   - RxSwift
   - SwiftLint
+  - Then
 
 SPEC REPOS:
   trunk:
@@ -21,6 +23,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SwiftLint
+    - Then
 
 SPEC CHECKSUMS:
   CHGlassmorphismView: e2ded43b8eada0f00915963d7d75287068099af2
@@ -28,7 +31,8 @@ SPEC CHECKSUMS:
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
+  Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
 
-PODFILE CHECKSUM: e24312c7e1246be21ef8fb00a88472b671ded7ca
+PODFILE CHECKSUM: 881c9e03f8fe333d825c52bb22a5f7e20f4047e5
 
 COCOAPODS: 1.11.3

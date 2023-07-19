@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Assembler: AnyObject, MainAssembler, AppAssembler {
+protocol Assembler: AnyObject, AppAssembler, MainAssembler, HomeAssembler {
 
 }
 

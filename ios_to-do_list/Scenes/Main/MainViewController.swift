@@ -7,9 +7,21 @@
 
 import UIKit
 import CHGlassmorphismView
+import RxSwift
+
+private enum TabbarItem: Int {
+    case home = 0
+    case habits = 1
+    case groupsAndStats = 2
+    case settings = 3
+}
 
 final class MainViewController: UITabBarController, Bindable {
+
     var viewModel: MainViewModel!
+    var navigator: UINavigationController!
+    private var assembler: Assembler = DefaultAssembler()
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,31 +29,32 @@ final class MainViewController: UITabBarController, Bindable {
         // Do any additional setup after loading the view.
         print("Main view did load")
         self.tabBar.backgroundColor = .black
-        let firstViewController = UIViewController()
-        firstViewController.view.backgroundColor = .blue
-        firstViewController.title = "First"
+    }
 
-        let secondViewController = UIViewController()
-        secondViewController.view.backgroundColor = .green
-        secondViewController.title = "Second"
-
-        let thirdViewController = UIViewController()
-        thirdViewController.view.backgroundColor = .white
-        thirdViewController.title = "Third"
-
-        let fourthViewController = UIViewController()
-        fourthViewController.view.backgroundColor = .orange
-        fourthViewController.title = "Fourth"
-
-        let fifthViewController = UIViewController()
-        fifthViewController.view.backgroundColor = .yellow
-        fifthViewController.title = "Fifth"
-
-        self.setViewControllers([firstViewController, secondViewController, thirdViewController, fourthViewController, fifthViewController], animated: true)
-        self.selectedIndex = 2
+    override func viewWillAppear(_ animated: Bool) {
+        setupViewPages()
     }
 
     func bindViewModel() {
-        print("Binding...")
+        print("Binding Main...")
+    }
+
+    func setupViewPages() {
+        let homeViewController: HomeViewController = assembler.resolve(navigationController: navigator)
+        homeViewController.title = "Home"
+
+        let secondViewController = UIViewController()
+        secondViewController.view.backgroundColor = .green
+        secondViewController.title = "Habits"
+
+        let thirdViewController = UIViewController()
+        thirdViewController.view.backgroundColor = .white
+        thirdViewController.title = "Groups & Stats"
+
+        let fourthViewController = UIViewController()
+        fourthViewController.view.backgroundColor = .orange
+        fourthViewController.title = "Settings"
+
+        self.setViewControllers([homeViewController, secondViewController, thirdViewController, fourthViewController], animated: true)
     }
 }

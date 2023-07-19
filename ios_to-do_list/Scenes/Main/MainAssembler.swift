@@ -19,6 +19,7 @@ extension MainAssembler {
     func resolve(navigationController: UINavigationController) -> MainViewController {
         let viewController = MainViewController()
         let viewModel: MainViewModel = resolve(navigationController: navigationController)
+        viewController.navigator = navigationController
         viewController.bindViewModel(to: viewModel)
         return viewController
     }
