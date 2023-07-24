@@ -12,14 +12,16 @@ import RxSwift
 private enum TabbarItem: Int {
     case home = 0
     case habits = 1
-    case groupsAndStats = 2
-    case settings = 3
+    case roomForButton = 2
+    case groupsAndStats = 3
+    case settings = 4
 }
 
 final class MainViewController: UITabBarController, Bindable {
 
     var viewModel: MainViewModel!
     var navigator: UINavigationController!
+
     private var assembler: Assembler = DefaultAssembler()
     private let disposeBag = DisposeBag()
 
@@ -28,7 +30,7 @@ final class MainViewController: UITabBarController, Bindable {
 
         // Do any additional setup after loading the view.
         print("Main view did load")
-        self.tabBar.backgroundColor = .black
+        self.tabBar.addShape()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +57,6 @@ final class MainViewController: UITabBarController, Bindable {
         fourthViewController.view.backgroundColor = .orange
         fourthViewController.title = "Settings"
 
-        self.setViewControllers([homeViewController, secondViewController, thirdViewController, fourthViewController], animated: true)
+        self.setViewControllers([homeViewController, secondViewController, UIViewController(), thirdViewController, fourthViewController], animated: true)
     }
 }

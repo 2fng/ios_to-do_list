@@ -14,12 +14,11 @@ class HomeViewController: UIViewController, Bindable {
         print("Binding Home...")
     }
 
-    @IBOutlet private weak var testView: UIView!
+    @IBOutlet private weak var containerView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        testView.backgroundColor = .systemPink
     }
 }

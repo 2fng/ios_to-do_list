@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1E983EB26AE1A55894A5107C /* Pods_ios_to_do_list.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061E37B8700F2756A3351020 /* Pods_ios_to_do_list.framework */; };
+		DF3B81E92A6ED1B400253D3B /* TabbarWithCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3B81E82A6ED1B400253D3B /* TabbarWithCurve.swift */; };
+		DF3B81EC2A6EE0B600253D3B /* UIColors+.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3B81EB2A6EE0B600253D3B /* UIColors+.swift */; };
 		DF486F0A2A68217E00139969 /* HomeAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF486F092A68217E00139969 /* HomeAssembler.swift */; };
 		DF486F0C2A6821B700139969 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF486F0B2A6821B700139969 /* HomeViewModel.swift */; };
 		DF486F0E2A68220600139969 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF486F0D2A68220600139969 /* HomeUseCase.swift */; };
@@ -39,6 +41,8 @@
 		061E37B8700F2756A3351020 /* Pods_ios_to_do_list.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_to_do_list.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA0704E1332782340FCB2B2 /* Pods-ios_to-do_list.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_to-do_list.release.xcconfig"; path = "Target Support Files/Pods-ios_to-do_list/Pods-ios_to-do_list.release.xcconfig"; sourceTree = "<group>"; };
 		995262B9F66763F61BC5FECB /* Pods-ios_to-do_list.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios_to-do_list.debug.xcconfig"; path = "Target Support Files/Pods-ios_to-do_list/Pods-ios_to-do_list.debug.xcconfig"; sourceTree = "<group>"; };
+		DF3B81E82A6ED1B400253D3B /* TabbarWithCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarWithCurve.swift; sourceTree = "<group>"; };
+		DF3B81EB2A6EE0B600253D3B /* UIColors+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors+.swift"; sourceTree = "<group>"; };
 		DF486F092A68217E00139969 /* HomeAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembler.swift; sourceTree = "<group>"; };
 		DF486F0B2A6821B700139969 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		DF486F0D2A68220600139969 /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
@@ -97,6 +101,30 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DF3B81E62A6ED17100253D3B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DF3B81E72A6ED17C00253D3B /* TabbarWithCurve */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		DF3B81E72A6ED17C00253D3B /* TabbarWithCurve */ = {
+			isa = PBXGroup;
+			children = (
+				DF3B81E82A6ED1B400253D3B /* TabbarWithCurve.swift */,
+			);
+			path = TabbarWithCurve;
+			sourceTree = "<group>";
+		};
+		DF3B81EA2A6EE09F00253D3B /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				DF3B81EB2A6EE0B600253D3B /* UIColors+.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		DF81DC392A5AA6AD00010CDC = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +161,7 @@
 		DF83B4F22A5EEA7400923DB1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DF3B81E62A6ED17100253D3B /* Common */,
 				DFD6EB162A65AE9000D9DB2C /* Home */,
 				DF83B50A2A5EF9CF00923DB1 /* Main */,
 				DF83B4F32A5EEAAE00923DB1 /* App */,
@@ -180,6 +209,7 @@
 		DF83B5072A5EF76000923DB1 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				DF3B81EA2A6EE09F00253D3B /* Extentions */,
 				DF83B5082A5EF77A00923DB1 /* ViewModel.swift */,
 				DF83B5172A5EFF3C00923DB1 /* Bindable.swift */,
 			);
@@ -362,12 +392,14 @@
 				DF83B5102A5EFC1100923DB1 /* MainAssembler.swift in Sources */,
 				DF83B5122A5EFC7700923DB1 /* MainViewModel.swift in Sources */,
 				DF83B4F72A5EEF4900923DB1 /* AppUseCase.swift in Sources */,
+				DF3B81EC2A6EE0B600253D3B /* UIColors+.swift in Sources */,
 				DF486F0E2A68220600139969 /* HomeUseCase.swift in Sources */,
 				DF83B5162A5EFE0000923DB1 /* MainUseCase.swift in Sources */,
 				DF83B4F92A5EF08C00923DB1 /* Assembler.swift in Sources */,
 				DF83B5022A5EF25A00923DB1 /* Storage.swift in Sources */,
 				DF83B5062A5EF4C400923DB1 /* AppAssembler.swift in Sources */,
 				DF83B4F52A5EEAD800923DB1 /* AppViewModel.swift in Sources */,
+				DF3B81E92A6ED1B400253D3B /* TabbarWithCurve.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
