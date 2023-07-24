@@ -31,5 +31,3 @@ extension AppViewModel: ViewModel {
         return Output()
     }
 }
-
-

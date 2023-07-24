@@ -14,7 +14,7 @@ class HomeViewController: UIViewController, Bindable {
         print("Binding Home...")
     }
 
-    @IBOutlet weak var testView: UIView!
+    @IBOutlet private weak var testView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
