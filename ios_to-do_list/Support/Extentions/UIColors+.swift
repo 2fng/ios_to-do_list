@@ -11,8 +11,8 @@ import UIKit
 extension UIColor {
     static func hex(_ hexStr: String, alpha: CGFloat = 1) -> UIColor {
         let scanner = Scanner(string: hexStr.replacingOccurrences(of: "#", with: ""))
-        var color: UInt32 = 0
-        if scanner.scanHexInt32(&color) {
+        var color: UInt64 = 0
+        if scanner.scanHexInt64(&color) {
             let redColor = CGFloat((color & 0xFF0000) >> 16) / 255.0
             let greenColor = CGFloat((color & 0x00FF00) >> 8) / 255.0
             let blueColor = CGFloat(color & 0x0000FF) / 255.0
@@ -36,5 +36,7 @@ extension UIColor {
         return color
     }
 
-    static let primaryDark = UIColor.hex("#0D0D0D")
+    static let primaryDark = UIColor.hex("#1B1B1B")
+    static let tabbarUnselected = UIColor.hex("646464")
+    static let primary = UIColor.link
 }

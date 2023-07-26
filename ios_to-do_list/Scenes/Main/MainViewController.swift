@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import CHGlassmorphismView
 import RxSwift
+import Then
 
 private enum TabbarItem: Int {
     case home = 0
@@ -43,20 +43,27 @@ final class MainViewController: UITabBarController, Bindable {
 
     func setupViewPages() {
         let homeViewController: HomeViewController = assembler.resolve(navigationController: navigator)
-        homeViewController.title = "Home"
+        configViewController(viewController: homeViewController, image: UIImage(named: "home"))
 
         let secondViewController = UIViewController()
-        secondViewController.view.backgroundColor = .green
-        secondViewController.title = "Habits"
+        configViewController(viewController: secondViewController, image: UIImage(named: "clipboard"))
 
         let thirdViewController = UIViewController()
-        thirdViewController.view.backgroundColor = .white
-        thirdViewController.title = "Groups & Stats"
+        configViewController(viewController: thirdViewController, image: UIImage(named: "stats"))
 
         let fourthViewController = UIViewController()
-        fourthViewController.view.backgroundColor = .orange
-        fourthViewController.title = "Settings"
+        configViewController(viewController: fourthViewController, image: UIImage(named: "settings"))
 
-        self.setViewControllers([homeViewController, secondViewController, UIViewController(), thirdViewController, fourthViewController], animated: true)
+        self.do {
+            $0.setViewControllers([homeViewController, secondViewController, UIViewController(), thirdViewController, fourthViewController], animated: true)
+            $0.tabBar.tintColor = .primary
+            $0.tabBar.unselectedItemTintColor = .tabbarUnselected
+        }
+    }
+
+    private func configViewController(viewController: UIViewController, image: UIImage?) {
+        viewController.tabBarItem.title = ""
+        viewController.tabBarItem.image = image?.resizeImage(targetSize: Constants.tabbarIconSize)
+        viewController.view.backgroundColor = .primaryDark
     }
 }
