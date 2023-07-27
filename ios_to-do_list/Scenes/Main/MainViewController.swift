@@ -25,12 +25,13 @@ final class MainViewController: UITabBarController, Bindable {
     private var assembler: Assembler = DefaultAssembler()
     private let disposeBag = DisposeBag()
 
+    private var isHomeSelected = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         print("Main view did load")
-        self.tabBar.addShape()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -42,6 +43,8 @@ final class MainViewController: UITabBarController, Bindable {
     }
 
     func setupViewPages() {
+        self.delegate = self
+
         let homeViewController: HomeViewController = assembler.resolve(navigationController: navigator)
         configViewController(viewController: homeViewController, image: UIImage(named: "home"))
 
@@ -54,8 +57,14 @@ final class MainViewController: UITabBarController, Bindable {
         let fourthViewController = UIViewController()
         configViewController(viewController: fourthViewController, image: UIImage(named: "settings"))
 
+        self.setViewControllers([homeViewController,
+                               secondViewController,
+                               thirdViewController,
+                               fourthViewController],
+                              animated: true)
+        animateTabbar()
+
         self.do {
-            $0.setViewControllers([homeViewController, secondViewController, UIViewController(), thirdViewController, fourthViewController], animated: true)
             $0.tabBar.tintColor = .primary
             $0.tabBar.unselectedItemTintColor = .tabbarUnselected
         }
@@ -65,5 +74,26 @@ final class MainViewController: UITabBarController, Bindable {
         viewController.tabBarItem.title = ""
         viewController.tabBarItem.image = image?.resizeImage(targetSize: Constants.tabbarIconSize)
         viewController.view.backgroundColor = .primaryDark
+    }
+
+    private func animateTabbar() {
+        self.do {
+            if isHomeSelected && ($0.viewControllers?.count ?? 0) <= 4 {
+                $0.viewControllers?.insert(UIViewController(), at: 2)
+                $0.tabBar.backgroundColor = .clear
+                $0.tabBar.addShape()
+            } else if !isHomeSelected && ($0.viewControllers?.count == 5) {
+                $0.viewControllers?.remove(at: 2)
+                $0.tabBar.backgroundColor = .primaryDark
+                $0.tabBar.removeDraw()
+            }
+        }
+    }
+}
+
+extension MainViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        isHomeSelected = tabBarController.selectedIndex == 0
+        animateTabbar()
     }
 }
