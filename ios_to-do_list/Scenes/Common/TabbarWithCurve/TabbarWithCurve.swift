@@ -12,12 +12,12 @@ import Then
 extension UITabBar {
 
     func addShape() {
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.do {
+        let shapeLayer = CAShapeLayer().with {
             $0.path = createPath()
             $0.fillColor = UIColor.primaryDark.cgColor
             $0.lineWidth = 1.0
         }
+        
         if self.layer.sublayers?.count ?? 0 >= 6 {
             self.layer.sublayers?.removeFirst(3)
         }
@@ -28,7 +28,7 @@ extension UITabBar {
     func removeDraw() {
         let shapeLayer = CAShapeLayer().with {
             $0.path = clearPath()
-            $0.fillColor = UIColor.clear.cgColor
+            $0.fillColor = UIColor.primaryDark.cgColor
             $0.lineWidth = 1.0
         }
 
@@ -39,7 +39,6 @@ extension UITabBar {
     }
 
     private func createPath() -> CGPath {
-
         let height: CGFloat = 30
         let path = UIBezierPath()
         let centerWidth = self.frame.width / 2
@@ -81,10 +80,21 @@ extension UITabBar {
         let centerWidth = self.frame.width / 2
 
         path.move(to: CGPoint(x: 0, y: 0)) // start top left
+        path.addArc(withCenter: CGPoint(x: height, y: height + 10),
+                    radius: 40,
+                    startAngle: CGFloat(Double.pi),
+                    endAngle: CGFloat(Double.pi/2 * 3),
+                    clockwise: true)
         path.addLine(to: CGPoint(x: (centerWidth - height * 2), y: 0)) // the beginning of the trough
 
         // Complete the rect
         path.addLine(to: CGPoint(x: self.frame.width, y: 0))
+        path.addArc(withCenter: CGPoint(x: self.frame.width - height, y: height + 10),
+                    radius: 40,
+                    startAngle: CGFloat(Double.pi/2 * 3),
+                    endAngle: 0,
+                    clockwise: true)
+        path.addLine(to: CGPoint(x: self.frame.width, y: height))
         path.addLine(to: CGPoint(x: self.frame.width, y: self.frame.height))
         path.addLine(to: CGPoint(x: 0, y: self.frame.height))
         path.close()
